@@ -5,11 +5,11 @@ import model.Post;
 import java.util.*;
 
 public class PostRepository {
-    private final Map<Integer, Post> posts = new HashMap<>();
-    private int idCounter = 1;
+    private final Map<Long, Post> posts = new HashMap<>();
+    private long idCounter = 1;
 
     public List<Post> all() {
-        return new ArrayList<Post>(posts.values());
+        return new ArrayList<>(posts.values());
     }
 
     public Optional<Post> getById(long id) {

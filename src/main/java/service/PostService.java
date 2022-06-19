@@ -29,7 +29,7 @@ public class PostService {
         }
     }
 
-    public void removeById(long id) {
-        repository.removeById(id).orElseThrow(NotFoundException::new);
+    public Post removeById(long id) {
+        return repository.removeById(id).orElseThrow(NotFoundException::new);
     }
 }

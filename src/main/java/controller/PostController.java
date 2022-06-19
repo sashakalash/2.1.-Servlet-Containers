@@ -42,6 +42,7 @@ public class PostController {
         response.setContentType(APPLICATION_JSON);
         response.setStatus(response.SC_NO_CONTENT);
         service.removeById(id);
+        response.getWriter().print(service.removeById(id));
         response.getWriter().print("Removed successfully!");
     }
 }
