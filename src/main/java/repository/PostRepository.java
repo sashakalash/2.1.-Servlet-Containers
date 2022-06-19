@@ -5,7 +5,8 @@ import model.Post;
 import java.util.*;
 
 public class PostRepository {
-    private final Map<Long, Post> posts = new HashMap<>();
+    private final Map<Integer, Post> posts = new HashMap<>();
+    private int idCounter = 1;
 
     public List<Post> all() {
         return new ArrayList<Post>(posts.values());
@@ -16,7 +17,9 @@ public class PostRepository {
     }
 
     public Post add(Post post) {
-        posts.put(post.getId(), post);
+        post.setId(idCounter);
+        posts.put(idCounter, post);
+        idCounter++;
         return post;
     }
 
