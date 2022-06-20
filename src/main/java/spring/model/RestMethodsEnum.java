@@ -1,4 +1,4 @@
-package model;
+package spring.model;
 
 public enum RestMethodsEnum {
     GET,
