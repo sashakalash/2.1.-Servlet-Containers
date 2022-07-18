@@ -1,9 +1,11 @@
-package repository;
+package spring.repository;
 
-import model.Post;
+import spring.model.Post;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class PostRepository {
     private final Map<Long, Post> posts = new HashMap<>();
     private long idCounter = 1;
