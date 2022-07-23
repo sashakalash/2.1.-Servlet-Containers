@@ -3,10 +3,12 @@ package repository;
 import model.Post;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PostRepository {
-    private final Map<Long, Post> posts = new HashMap<>();
-    private long idCounter = 1;
+    private final Map<AtomicInteger, Post> posts = new ConcurrentHashMap<>();
+    private AtomicInteger idCounter = new AtomicInteger();
 
     public List<Post> all() {
         return new ArrayList<>(posts.values());
@@ -17,9 +19,9 @@ public class PostRepository {
     }
 
     public Post add(Post post) {
-        post.setId(idCounter);
+        post.setId(idCounter.get());
         posts.put(idCounter, post);
-        idCounter++;
+        idCounter.incrementAndGet();
         return post;
     }
 
